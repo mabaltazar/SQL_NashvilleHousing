@@ -1,19 +1,43 @@
-# DataCleaning_NashvilleHousing
+# 🧹 Nashville Housing Data Cleaning Project  
+This project showcases a comprehensive data cleaning process using Microsoft SQL Server on housing sales data from Nashville. The dataset originally contained inconsistent, null, and duplicate values that were corrected and standardized using structured SQL techniques
 
-![Nashville](https://github.com/mabaltazar/SQL_NashvilleHousing/blob/Image/Housing.jpg)
-Cleaned and transformed Nashville housing data for analysis, focusing on data integrity and consistency.
+🎯 Objective
+To clean and prepare a housing dataset for analysis by:
+- Standardizing and formatting date fields
+- Handling null and inconsistent address values
+- Separating multi-value fields into distinct components
+- Removing duplicate records and unnecessary columns
+  
+🧰 Tools Used
+- Microsoft SQL Server
+- SQL Features:
+- CONVERT()
+- ISNULL()
+- SUBSTRING(), CHARINDEX(), PARSENAME(), REPLACE()
+- CASE statements
+- ROW_NUMBER() and Common Table Expressions (CTEs)
 
-This project's goal was to go through the important steps of data cleaning and transformation, including removing duplicates, handling missing values, and ensuring data types are correct.
+🪜 Steps Taken
+1. 📅 Date Standardization
+- Converted the SaleDate field to a DATE format
+- Added a new column SaleDateConverted due to type limitations
+2. 🏡 Address Cleanup
+- Populated NULL values in PropertyAddress using self-joins on matching ParcelIDs
+- Split PropertyAddress into Street and City using SUBSTRING() + CHARINDEX()
+3. 👤 Owner Address Parsing
+- Used PARSENAME() + REPLACE() to split OwnerAddress into:
+- OwnerAddressSplit, OwnerCitySplit, and OwnerStateSplit
+4. 🧾 SoldAsVacant Standardization
+- Transformed values:
+- 'Y' → 'Yes'
+- 'N' → 'No'
+5. 🔁 Duplicate Removal
+- Applied a ROW_NUMBER() CTE to identify duplicate entries
+- (Commented DELETE statement for safety inspection before removal)
+6. 🗑️ Column Pruning
+- Dropped redundant columns: OwnerAddress, PropertyAddress, SaleDate
 
-Steps taken for cleaning the data
-
-1. Standardize the date
-2. Populate the NULL values of PropertyAddress column
-3. Separate the PropertyAddress into individual columns like Street and City
-4. Checking if we can populate the NULL values in OwnerAddress
-5. Separate the OwnerAddress into individual columns like Street, City, and State
-6. Change Y and N to Yes and No in SoldAsVacant column
-7. Remove the duplicate records
-8. Removing unecessary columns
-
-Dataset: [Nashville Housing Data](https://www.kaggle.com/datasets/tmthyjames/nashville-housing-data)
+📂 Dataset
+- Dataset: [Nashville Housing Data](https://www.kaggle.com/datasets/tmthyjames/nashville-housing-data)
+- Housing sales data fields:
+- ParcelID, PropertyAddress, SalePrice, SaleDate, LegalReference, OwnerAddress, SoldAsVacant
