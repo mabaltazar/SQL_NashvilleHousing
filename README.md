@@ -33,7 +33,6 @@ To clean and prepare a housing dataset for analysis by:
 - 'N' → 'No'
 5. 🔁 Removing Duplicates
 - Applied a ROW_NUMBER() CTE to identify duplicate entries
-- (Commented DELETE statement for safety inspection before removal)
 6. 🗑️ Removing Unecessary Columns
 - Dropped redundant columns: OwnerAddress, PropertyAddress, SaleDate
 
