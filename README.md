@@ -24,17 +24,17 @@ To clean and prepare a housing dataset for analysis by:
 2. 🏡 Address Cleanup
 - Populated NULL values in PropertyAddress using self-joins on matching ParcelIDs
 - Split PropertyAddress into Street and City using SUBSTRING() + CHARINDEX()
-3. 👤 Owner Address Parsing
+3. 👤 Separating Address
 - Used PARSENAME() + REPLACE() to split OwnerAddress into:
 - OwnerAddressSplit, OwnerCitySplit, and OwnerStateSplit
-4. 🧾 SoldAsVacant Standardization
+4. 🧾 Standardizing SoldAsVacant Column
 - Transformed values:
 - 'Y' → 'Yes'
 - 'N' → 'No'
-5. 🔁 Removing duplicates
+5. 🔁 Removing Duplicates
 - Applied a ROW_NUMBER() CTE to identify duplicate entries
 - (Commented DELETE statement for safety inspection before removal)
-6. 🗑️ Removing unecessary columns
+6. 🗑️ Removing Unecessary Columns
 - Dropped redundant columns: OwnerAddress, PropertyAddress, SaleDate
 
 📂 Dataset
