@@ -1,7 +1,7 @@
 # 🧹 Nashville Housing Data Cleaning Project  
 This project showcases a comprehensive data cleaning process using Microsoft SQL Server on housing sales data from Nashville. The dataset originally contained inconsistent, null, and duplicate values that were corrected and standardized using structured SQL techniques
 
-🎯 Objective
+🎯 Objective  
 To clean and prepare a housing dataset for analysis by:
 - Standardizing and formatting date fields
 - Handling null and inconsistent address values
@@ -31,10 +31,10 @@ To clean and prepare a housing dataset for analysis by:
 - Transformed values:
 - 'Y' → 'Yes'
 - 'N' → 'No'
-5. 🔁 Duplicate Removal
+5. 🔁 Removing duplicates
 - Applied a ROW_NUMBER() CTE to identify duplicate entries
 - (Commented DELETE statement for safety inspection before removal)
-6. 🗑️ Column Pruning
+6. 🗑️ Removing unecessary columns
 - Dropped redundant columns: OwnerAddress, PropertyAddress, SaleDate
 
 📂 Dataset
